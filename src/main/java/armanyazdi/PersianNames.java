@@ -7,8 +7,13 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class PersianNames {
-    int gender;
-    String[] files, someSuffixesEn, moreSuffixesEn, someSuffixesFa, moreSuffixesFa, chooseBetween;
+    private int gender;
+    private final String[] files;
+    private final String[] someSuffixesEn;
+    private final String[] moreSuffixesEn;
+    private final String[] someSuffixesFa;
+    private final String[] moreSuffixesFa;
+    private String[] chooseBetween;
     private final ArrayList<String> firstNamesEn = new ArrayList<>();
     private final ArrayList<String> lastNamesEn = new ArrayList<>();
     private final ArrayList<String> firstNamesFa = new ArrayList<>();
@@ -32,7 +37,6 @@ public class PersianNames {
                 "nia",
                 "mehr"
         };
-
         moreSuffixesEn = new String[]{
                 "i", "i", "i", "i", "i", "i", "i", "i", "i",
                 "pour",
@@ -45,7 +49,6 @@ public class PersianNames {
                 "nia",
                 "zehi"
         };
-
         someSuffixesFa = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
                 " پور",
@@ -60,7 +63,6 @@ public class PersianNames {
                 " نیا",
                 " مهر"
         };
-
         moreSuffixesFa = new String[]{
                 "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی",
                 " پور",
@@ -137,7 +139,6 @@ public class PersianNames {
     }
 
     public String fullNameEn(String sex) throws FileNotFoundException {
-
         return firstNameEn(sex) + " " + lastNameEn();
     }
 
@@ -199,7 +200,6 @@ public class PersianNames {
     }
 
     public String fullNameFa(String sex) throws FileNotFoundException {
-
         return firstNameFa(sex) + " " + lastNameFa();
     }
 }
