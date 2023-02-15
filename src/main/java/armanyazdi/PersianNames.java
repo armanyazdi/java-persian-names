@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class PersianNames {
-    private int gender;
+    private int sex;
     private final String[] files;
     private final String[] someSuffixesEn;
     private final String[] moreSuffixesEn;
@@ -79,13 +79,13 @@ public class PersianNames {
     public String firstNameEn(String sex) throws FileNotFoundException {
 
         switch (sex.toLowerCase()) {
-            case "male", "m" -> gender = 0;
-            case "female", "f" -> gender = 1;
-            case "random", "r" -> gender = (int) Math.round(Math.random());
-            default -> gender = (int) Math.round(Math.random());
+            case "male", "m" -> this.sex = 0;
+            case "female", "f" -> this.sex = 1;
+            case "random", "r" -> this.sex = (int) Math.round(Math.random());
+            default -> this.sex = (int) Math.round(Math.random());
         }
 
-        File file = new File("src/main/resources/files/" + files[gender]);
+        File file = new File("src/main/resources/files/" + files[this.sex]);
         Scanner reader = new Scanner(file);
 
         while (reader.hasNextLine()) {
@@ -144,13 +144,13 @@ public class PersianNames {
     public String firstNameFa(String sex) throws FileNotFoundException {
 
         switch (sex.toLowerCase()) {
-            case "male", "m" -> gender = 2;
-            case "female", "f" -> gender = 3;
-            case "random", "r" -> gender = (int) Math.round(Math.random()) + 2;
-            default -> gender = (int) Math.round(Math.random()) + 2;
+            case "male", "m" -> this.sex = 2;
+            case "female", "f" -> this.sex = 3;
+            case "random", "r" -> this.sex = (int) Math.round(Math.random()) + 2;
+            default -> this.sex = (int) Math.round(Math.random()) + 2;
         }
 
-        File file = new File("src/main/resources/files/" + files[gender]);
+        File file = new File("src/main/resources/files/" + files[this.sex]);
         Scanner reader = new Scanner(file);
 
         while (reader.hasNextLine()) {
