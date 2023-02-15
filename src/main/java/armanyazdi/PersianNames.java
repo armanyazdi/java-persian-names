@@ -20,7 +20,6 @@ public class PersianNames {
     private final ArrayList<String> lastNamesFa = new ArrayList<>();
 
     public PersianNames() {
-
         files = new String[]{"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
         someSuffixesEn = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
@@ -76,15 +75,17 @@ public class PersianNames {
         };
     }
 
-    public String firstNameEn(String sex) throws FileNotFoundException {
-
+    private void setGender(String sex) {
         switch (sex.toLowerCase()) {
             case "male", "m" -> this.sex = 0;
             case "female", "f" -> this.sex = 1;
             case "random", "r" -> this.sex = (int) Math.round(Math.random());
             default -> this.sex = (int) Math.round(Math.random());
         }
+    }
 
+    public String firstNameEn(String sex) throws FileNotFoundException {
+        setGender(sex);
         File file = new File("src/main/resources/files/" + files[this.sex]);
         Scanner reader = new Scanner(file);
 
@@ -94,7 +95,6 @@ public class PersianNames {
         }
 
         reader.close();
-
         return firstNamesEn.get((int) (Math.random() * firstNamesEn.size())).replace("[", "").replace("]", "");
     }
 
@@ -142,15 +142,8 @@ public class PersianNames {
     }
 
     public String firstNameFa(String sex) throws FileNotFoundException {
-
-        switch (sex.toLowerCase()) {
-            case "male", "m" -> this.sex = 2;
-            case "female", "f" -> this.sex = 3;
-            case "random", "r" -> this.sex = (int) Math.round(Math.random()) + 2;
-            default -> this.sex = (int) Math.round(Math.random()) + 2;
-        }
-
-        File file = new File("src/main/resources/files/" + files[this.sex]);
+        setGender(sex);
+        File file = new File("src/main/resources/files/" + files[this.sex + 2]);
         Scanner reader = new Scanner(file);
 
         while (reader.hasNextLine()) {
@@ -159,7 +152,6 @@ public class PersianNames {
         }
 
         reader.close();
-
         return firstNamesFa.get((int) (Math.random() * firstNamesFa.size())).replace("[", "").replace("]", "");
     }
 
