@@ -98,6 +98,10 @@ public class PersianNames {
         return firstNamesEn.get((int) (Math.random() * firstNamesEn.size())).replace("[", "").replace("]", "");
     }
 
+    public String firstNameEn() throws FileNotFoundException {
+        return firstNameEn("random");
+    }
+
     public String lastNameEn() throws FileNotFoundException {
         File file = new File("src/main/resources/files/" + files[0]);
         Scanner reader = new Scanner(file);
@@ -141,6 +145,10 @@ public class PersianNames {
         return firstNameEn(sex) + " " + lastNameEn();
     }
 
+    public String fullNameEn() throws FileNotFoundException {
+        return fullNameEn("random");
+    }
+
     public String firstNameFa(String sex) throws FileNotFoundException {
         setGender(sex);
         File file = new File("src/main/resources/files/" + files[this.sex + 2]);
@@ -153,6 +161,10 @@ public class PersianNames {
 
         reader.close();
         return firstNamesFa.get((int) (Math.random() * firstNamesFa.size())).replace("[", "").replace("]", "");
+    }
+
+    public String firstNameFa() throws FileNotFoundException {
+        return firstNameFa("random");
     }
 
     public String lastNameFa() throws FileNotFoundException {
@@ -192,5 +204,9 @@ public class PersianNames {
 
     public String fullNameFa(String sex) throws FileNotFoundException {
         return firstNameFa(sex) + " " + lastNameFa();
+    }
+
+    public String fullNameFa() throws FileNotFoundException {
+        return fullNameFa("random");
     }
 }
