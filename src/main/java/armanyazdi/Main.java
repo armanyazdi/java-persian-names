@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        PersianNames name = new PersianNames();
+        var name = new PersianNames();
 
         // Generate Persian names in Farsi:
         System.out.println(name.fullNameFa("male"));
