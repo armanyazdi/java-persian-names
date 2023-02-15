@@ -22,7 +22,6 @@ public class PersianNames {
     public PersianNames() {
 
         files = new String[]{"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
-
         someSuffixesEn = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
                 "pour",
