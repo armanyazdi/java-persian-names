@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class PersianNames {
-    private int sex;
+    private byte sex;
     private final String[] files;
     private final String[] someSuffixesEn;
     private final String[] moreSuffixesEn;
@@ -79,8 +79,8 @@ public class PersianNames {
         switch (sex.toLowerCase()) {
             case "male", "m" -> this.sex = 0;
             case "female", "f" -> this.sex = 1;
-            case "random", "r" -> this.sex = (int) Math.round(Math.random());
-            default -> this.sex = (int) Math.round(Math.random());
+            case "random", "r" -> this.sex = (byte) Math.round(Math.random());
+            default -> this.sex = (byte) Math.round(Math.random());
         }
     }
 
@@ -126,7 +126,7 @@ public class PersianNames {
             assert true;
         else {
             chooseBetween = new String[]{"i", ""};
-            lastName += chooseBetween[(int) (Math.round(Math.random()))];
+            lastName += chooseBetween[(byte) (Math.round(Math.random()))];
         }
 
         if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) == 'i')
@@ -134,9 +134,9 @@ public class PersianNames {
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) != 'i')
             lastName += "i";
         else if (lastName.charAt(lastName.length() -1) == 'i')
-            lastName += someSuffixesEn[(int) (Math.random() * someSuffixesEn.length)];
+            lastName += someSuffixesEn[(byte) (Math.random() * someSuffixesEn.length)];
         else
-            lastName += moreSuffixesEn[(int) (Math.random() * moreSuffixesEn.length)];
+            lastName += moreSuffixesEn[(byte) (Math.random() * moreSuffixesEn.length)];
 
         return lastName;
     }
@@ -191,13 +191,13 @@ public class PersianNames {
             assert true;
         else {
             chooseBetween = new String[]{"ی", ""};
-            lastName += chooseBetween[(int) (Math.round(Math.random()))];
+            lastName += chooseBetween[(byte) (Math.round(Math.random()))];
         }
 
         if (lastName.charAt(lastName.length() -1) == 'ی')
-            lastName += someSuffixesFa[(int) (Math.random() * someSuffixesFa.length)];
+            lastName += someSuffixesFa[(byte) (Math.random() * someSuffixesFa.length)];
         else
-            lastName += moreSuffixesFa[(int) (Math.random() * moreSuffixesFa.length)];
+            lastName += moreSuffixesFa[(byte) (Math.random() * moreSuffixesFa.length)];
 
         return lastName;
     }
