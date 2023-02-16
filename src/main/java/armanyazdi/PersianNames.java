@@ -8,74 +8,17 @@ import java.util.Scanner;
 
 public class PersianNames {
     private byte sex;
-    private final String[] files;
-    private final String[] someSuffixesEn;
-    private final String[] moreSuffixesEn;
-    private final String[] someSuffixesFa;
-    private final String[] moreSuffixesFa;
-    private String[] chooseBetween;
+    private String[] files, someSuffixes, moreSuffixes, chooseBetween;
     private final ArrayList<String> firstNamesEn = new ArrayList<>();
     private final ArrayList<String> lastNamesEn = new ArrayList<>();
     private final ArrayList<String> firstNamesFa = new ArrayList<>();
     private final ArrayList<String> lastNamesFa = new ArrayList<>();
 
-    public PersianNames() {
-        files = new String[]{"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
-        someSuffixesEn = new String[]{
-                "", "", "", "", "", "", "", "", "", "", "",
-                "pour",
-                "zadeh",
-                "far",
-                "fard",
-                "an",
-                "kia",
-                "rad",
-                "zand",
-                "khah",
-                "nia",
-                "mehr"
-        };
-        moreSuffixesEn = new String[]{
-                "i", "i", "i", "i", "i", "i", "i", "i", "i",
-                "pour",
-                "zadeh",
-                "far",
-                "fard",
-                "khani",
-                "vand",
-                "lou",
-                "nia",
-                "zehi"
-        };
-        someSuffixesFa = new String[]{
-                "", "", "", "", "", "", "", "", "", "", "",
-                " پور",
-                " زاده",
-                " فر",
-                " فرد",
-                "ان",
-                " کیا",
-                " راد",
-                " زند",
-                " خواه",
-                " نیا",
-                " مهر"
-        };
-        moreSuffixesFa = new String[]{
-                "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی",
-                " پور",
-                " زاده",
-                " فر",
-                " فرد",
-                " خانی",
-                " وند",
-                " لو",
-                " نیا",
-                " زهی"
-        };
-    }
-
     private void setGender(String sex) {
+
+        // .txt Files
+        files = new String[]{"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
+
         switch (sex.toLowerCase()) {
             case "male", "m" -> this.sex = 0;
             case "female", "f" -> this.sex = 1;
@@ -103,6 +46,35 @@ public class PersianNames {
     }
 
     public String lastNameEn() throws FileNotFoundException {
+
+        // English Suffixes
+        someSuffixes = new String[]{
+                "", "", "", "", "", "", "", "", "", "", "",
+                "pour",
+                "zadeh",
+                "far",
+                "fard",
+                "an",
+                "kia",
+                "rad",
+                "zand",
+                "khah",
+                "nia",
+                "mehr"
+        };
+        moreSuffixes = new String[]{
+                "i", "i", "i", "i", "i", "i", "i", "i", "i",
+                "pour",
+                "zadeh",
+                "far",
+                "fard",
+                "khani",
+                "vand",
+                "lou",
+                "nia",
+                "zehi"
+        };
+
         File file = new File("src/main/resources/files/" + files[0]);
         Scanner reader = new Scanner(file);
 
@@ -134,9 +106,9 @@ public class PersianNames {
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) != 'i')
             lastName += "i";
         else if (lastName.charAt(lastName.length() -1) == 'i')
-            lastName += someSuffixesEn[(byte) (Math.random() * someSuffixesEn.length)];
+            lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
-            lastName += moreSuffixesEn[(byte) (Math.random() * moreSuffixesEn.length)];
+            lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
 
         return lastName;
     }
@@ -168,6 +140,35 @@ public class PersianNames {
     }
 
     public String lastNameFa() throws FileNotFoundException {
+
+        // Farsi Suffixes
+        someSuffixes = new String[]{
+                "", "", "", "", "", "", "", "", "", "", "",
+                " پور",
+                " زاده",
+                " فر",
+                " فرد",
+                "ان",
+                " کیا",
+                " راد",
+                " زند",
+                " خواه",
+                " نیا",
+                " مهر"
+        };
+        moreSuffixes = new String[]{
+                "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی",
+                " پور",
+                " زاده",
+                " فر",
+                " فرد",
+                " خانی",
+                " وند",
+                " لو",
+                " نیا",
+                " زهی"
+        };
+
         File file = new File("src/main/resources/files/" + files[2]);
         Scanner reader = new Scanner(file);
 
@@ -195,9 +196,9 @@ public class PersianNames {
         }
 
         if (lastName.charAt(lastName.length() -1) == 'ی')
-            lastName += someSuffixesFa[(byte) (Math.random() * someSuffixesFa.length)];
+            lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
-            lastName += moreSuffixesFa[(byte) (Math.random() * moreSuffixesFa.length)];
+            lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
 
         return lastName;
     }
