@@ -1,3 +1,3 @@
-# persian-names-java
+# Persian Names Java
 
-A Persian Names generator written in Java.
+Random Persian Names generator.
