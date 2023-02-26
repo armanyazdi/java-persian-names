@@ -7,25 +7,26 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class PersianNames {
-    private byte sex;
-    private final String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
-    private final ArrayList<String> firstNamesEn = new ArrayList<>();
-    private final ArrayList<String> lastNamesEn = new ArrayList<>();
-    private final ArrayList<String> firstNamesFa = new ArrayList<>();
-    private final ArrayList<String> lastNamesFa = new ArrayList<>();
-    private String[] someSuffixes, moreSuffixes, chooseBetween;
+    private static byte gender;
+    private static final String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
+    private static final ArrayList<String> firstNamesEn = new ArrayList<>();
+    private static final ArrayList<String> lastNamesEn = new ArrayList<>();
+    private static final ArrayList<String> firstNamesFa = new ArrayList<>();
+    private static final ArrayList<String> lastNamesFa = new ArrayList<>();
+    private static String[] someSuffixes, moreSuffixes, chooseBetween;
 
-    private void setGender(String sex) {
+    private static void setGender(String sex) {
         switch (sex.toLowerCase()) {
-            case "male", "m" -> this.sex = 0;
-            case "female", "f" -> this.sex = 1;
-            case "random", "r", default -> this.sex = (byte) Math.round(Math.random());
+            case "male", "m" -> gender = 0;
+            case "female", "f" -> gender = 1;
+            case "random", "r" -> gender = (byte) Math.round(Math.random());
+            default -> gender = (byte) Math.round(Math.random());
         }
     }
 
-    public String firstNameEn(String sex) throws FileNotFoundException {
+    public static String firstNameEn(String sex) throws FileNotFoundException {
         setGender(sex);
-        File file = new File("src/main/resources/files/" + files[this.sex]);
+        File file = new File("src/main/resources/files/" + files[gender]);
         Scanner reader = new Scanner(file);
 
         while (reader.hasNextLine()) {
@@ -37,11 +38,11 @@ public class PersianNames {
         return firstNamesEn.get((int) (Math.random() * firstNamesEn.size())).replace("[", "").replace("]", "");
     }
 
-    public String firstNameEn() throws FileNotFoundException {
+    public static String firstNameEn() throws FileNotFoundException {
         return firstNameEn("random");
     }
 
-    public String lastNameEn() throws FileNotFoundException {
+    public static String lastNameEn() throws FileNotFoundException {
         // English Suffixes
         someSuffixes = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
@@ -108,17 +109,17 @@ public class PersianNames {
         return lastName;
     }
 
-    public String fullNameEn(String sex) throws FileNotFoundException {
+    public static String fullNameEn(String sex) throws FileNotFoundException {
         return firstNameEn(sex) + " " + lastNameEn();
     }
 
-    public String fullNameEn() throws FileNotFoundException {
+    public static String fullNameEn() throws FileNotFoundException {
         return fullNameEn("random");
     }
 
-    public String firstNameFa(String sex) throws FileNotFoundException {
+    public static String firstNameFa(String sex) throws FileNotFoundException {
         setGender(sex);
-        File file = new File("src/main/resources/files/" + files[this.sex + 2]);
+        File file = new File("src/main/resources/files/" + files[gender + 2]);
         Scanner reader = new Scanner(file);
 
         while (reader.hasNextLine()) {
@@ -130,11 +131,11 @@ public class PersianNames {
         return firstNamesFa.get((int) (Math.random() * firstNamesFa.size())).replace("[", "").replace("]", "");
     }
 
-    public String firstNameFa() throws FileNotFoundException {
+    public static String firstNameFa() throws FileNotFoundException {
         return firstNameFa("random");
     }
 
-    public String lastNameFa() throws FileNotFoundException {
+    public static String lastNameFa() throws FileNotFoundException {
         // Farsi Suffixes
         someSuffixes = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
@@ -197,11 +198,11 @@ public class PersianNames {
         return lastName;
     }
 
-    public String fullNameFa(String sex) throws FileNotFoundException {
+    public static String fullNameFa(String sex) throws FileNotFoundException {
         return firstNameFa(sex) + " " + lastNameFa();
     }
 
-    public String fullNameFa() throws FileNotFoundException {
+    public static String fullNameFa() throws FileNotFoundException {
         return fullNameFa("random");
     }
 }
