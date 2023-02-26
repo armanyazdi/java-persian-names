@@ -8,22 +8,18 @@ import java.util.Scanner;
 
 public class PersianNames {
     private byte sex;
-    private String[] files, someSuffixes, moreSuffixes, chooseBetween;
+    private final String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
     private final ArrayList<String> firstNamesEn = new ArrayList<>();
     private final ArrayList<String> lastNamesEn = new ArrayList<>();
     private final ArrayList<String> firstNamesFa = new ArrayList<>();
     private final ArrayList<String> lastNamesFa = new ArrayList<>();
+    private String[] someSuffixes, moreSuffixes, chooseBetween;
 
     private void setGender(String sex) {
-
-        // .txt Files
-        files = new String[]{"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
-
         switch (sex.toLowerCase()) {
             case "male", "m" -> this.sex = 0;
             case "female", "f" -> this.sex = 1;
-            case "random", "r" -> this.sex = (byte) Math.round(Math.random());
-            default -> this.sex = (byte) Math.round(Math.random());
+            case "random", "r", default -> this.sex = (byte) Math.round(Math.random());
         }
     }
 
@@ -46,7 +42,6 @@ public class PersianNames {
     }
 
     public String lastNameEn() throws FileNotFoundException {
-
         // English Suffixes
         someSuffixes = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
@@ -140,7 +135,6 @@ public class PersianNames {
     }
 
     public String lastNameFa() throws FileNotFoundException {
-
         // Farsi Suffixes
         someSuffixes = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
