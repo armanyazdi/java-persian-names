@@ -4,16 +4,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class PersianNames {
     private static byte genderNumber;
     private static final String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
+    private static String[] somePrefixes, someSuffixes, moreSuffixes, arabicNames, chooseBetween;
     private static final ArrayList<String> firstNamesEnglish = new ArrayList<>();
     private static final ArrayList<String> lastNamesEnglish = new ArrayList<>();
     private static final ArrayList<String> firstNamesFarsi = new ArrayList<>();
     private static final ArrayList<String> lastNamesFarsi = new ArrayList<>();
-    private static String[] someSuffixes, moreSuffixes, chooseBetween;
 
     private static void setGender(String sex) {
         switch (sex.toLowerCase()) {
@@ -43,7 +44,14 @@ public class PersianNames {
     }
 
     public static String lastNameEnglish() throws FileNotFoundException {
-        // English Suffixes
+        // English Prefixes and Suffixes
+        somePrefixes = new String[]{
+                "", "", "", "",
+                "Mir",
+                "Agha",
+                "Shah",
+                "Sheikh"
+        };
         someSuffixes = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
                 "pour",
@@ -69,6 +77,27 @@ public class PersianNames {
                 "lou",
                 "nia",
                 "zehi"
+        };
+
+        // Arabic Names
+        arabicNames = new String[]{
+                "Ahmad",
+                "Ebrahim",
+                "Abolfazl",
+                "Esmaeil",
+                "Davoud",
+                "Mohammad",
+                "Mahmoud",
+                "Yousef",
+                "Hassan",
+                "Hossein",
+                "Soleiman",
+                "Rahim",
+                "Rahman",
+                "Hakim",
+                "Akbar",
+                "Abbas",
+                "Abdollah"
         };
 
         File file = new File("src/main/resources/files/" + files[0]);
@@ -97,7 +126,14 @@ public class PersianNames {
             lastName += chooseBetween[(byte) (Math.round(Math.random()))];
         }
 
-        if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) == 'i')
+        if (Arrays.asList(arabicNames).contains(lastName.substring(0, lastName.length() - 1))) {
+            String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
+            if (!Objects.equals(prefix, "") && prefix.charAt(prefix.length() -1) == lastName.toLowerCase().charAt(0))
+                lastName = prefix + " " + lastName;
+            else
+                lastName = prefix + lastName.toLowerCase();
+        }
+        else if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) == 'i')
             lastName += "";
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) != 'i')
             lastName += "i";
@@ -136,7 +172,14 @@ public class PersianNames {
     }
 
     public static String lastNameFarsi() throws FileNotFoundException {
-        // Farsi Suffixes
+        // Farsi Prefixes and Suffixes
+        somePrefixes = new String[]{
+                "", "", "", "",
+                "میر",
+                "آقا",
+                "شاه ",
+                "شیخ "
+        };
         someSuffixes = new String[]{
                 "", "", "", "", "", "", "", "", "", "", "",
                 " پور",
@@ -162,6 +205,27 @@ public class PersianNames {
                 " لو",
                 " نیا",
                 " زهی"
+        };
+
+        // Arabic Names
+        arabicNames = new String[]{
+                "احمد",
+                "ابراهیم",
+                "ابوالفضل",
+                "اسماعیل",
+                "داود",
+                "محمد",
+                "محمود",
+                "یوسف",
+                "حسن",
+                "حسین",
+                "سلیمان",
+                "رحیم",
+                "رحمان",
+                "حکیم",
+                "اکبر",
+                "عباس",
+                "عبدالله"
         };
 
         File file = new File("src/main/resources/files/" + files[2]);
@@ -190,7 +254,9 @@ public class PersianNames {
             lastName += chooseBetween[(byte) (Math.round(Math.random()))];
         }
 
-        if (lastName.charAt(lastName.length() -1) == 'ی')
+        if (Arrays.asList(arabicNames).contains(lastName.substring(0, lastName.length() - 1)))
+            lastName = somePrefixes[(byte) (Math.random() * somePrefixes.length)] + lastName;
+        else if (lastName.charAt(lastName.length() -1) == 'ی')
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
