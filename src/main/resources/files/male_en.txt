@@ -25,6 +25,7 @@ Amirali
 Amiremad
 Amirhassan
 Amirhossein
+Amirmahdi
 Amirmohammad
 Amirreza
 Aram
@@ -255,6 +256,7 @@ Sobhan
 Soheil
 Sohrab
 Soleiman
+Soltan
 Soroush
 Taha
 Taher
