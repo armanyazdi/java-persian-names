@@ -123,7 +123,7 @@ public class PersianNames {
         reader.close();
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size())).replace("[", "").replace("]", "");
 
-        if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya"))
+        if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra"))
             lastName += "vi";
         else if (lastName.equals("Morteza"))
             lastName = lastName.replace("ez", "az") + "vi";
@@ -267,7 +267,7 @@ public class PersianNames {
         reader.close();
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size())).replace("[", "").replace("]", "");
 
-        if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی"))
+        if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری"))
             lastName = lastName.replace("ی", "وی");
         else if (lastName.equals("یحیی"))
             lastName = lastName.replace("یی", "یوی");
@@ -276,7 +276,7 @@ public class PersianNames {
         else if (lastName.equals("خسرو"))
             assert true;
         else if (lastName.charAt(lastName.length() -1) == 'ا' || lastName.charAt(lastName.length() -1) == 'و')
-            lastName += "ئی";
+            lastName += "یی";
         else if (lastName.charAt(lastName.length() -1) == 'ی')
             assert true;
         else {
@@ -290,7 +290,7 @@ public class PersianNames {
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
 
-        while (lastName.endsWith("علی") || lastName.endsWith("مهدی") || lastName.equals("عیسی") || lastName.equals("مانی") || lastName.equals("قلی"))
+        while (lastName.endsWith("علی") || lastName.endsWith("مهدی") || lastName.equals("مانی") || lastName.equals("قلی"))
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
 
         return lastName;
