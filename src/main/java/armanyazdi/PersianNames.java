@@ -10,11 +10,12 @@ import java.util.Scanner;
 public class PersianNames {
     private static byte genderNumber;
     private static final String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
-    private static String[] somePrefixes, someSuffixes, moreSuffixes, arabicNames;
+    private static String[] somePrefixes, someSuffixes, moreSuffixes;
     private static final ArrayList<String> firstNamesEnglish = new ArrayList<>();
     private static final ArrayList<String> lastNamesEnglish = new ArrayList<>();
     private static final ArrayList<String> firstNamesFarsi = new ArrayList<>();
     private static final ArrayList<String> lastNamesFarsi = new ArrayList<>();
+    private static final ArrayList<String> someArabicNames = new ArrayList<>();
 
     private static void setGender(String sex) {
         switch (sex.toLowerCase()) {
@@ -32,11 +33,11 @@ public class PersianNames {
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            firstNamesEnglish.add((Arrays.toString(data.split("\n"))));
+            firstNamesEnglish.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
         }
 
         reader.close();
-        return firstNamesEnglish.get((int) (Math.random() * firstNamesEnglish.size())).replace("[", "").replace("]", "");
+        return firstNamesEnglish.get((int) (Math.random() * firstNamesEnglish.size()));
     }
 
     public static String firstNameEnglish() throws FileNotFoundException {
@@ -84,44 +85,17 @@ public class PersianNames {
                 "nejad"
         };
 
-        // Arabic Names
-        arabicNames = new String[]{
-                "Abbas",
-                "Abdollah",
-                "Abolfazl",
-                "Ahmad",
-                "Akbar",
-                "Davoud",
-                "Ebrahim",
-                "Esmaeil",
-                "Hakim",
-                "Hassan",
-                "Hossein",
-                "Kamal",
-                "Mansour",
-                "Mahmoud",
-                "Mohammad",
-                "Nasser",
-                "Nassir",
-                "Rahim",
-                "Rahman",
-                "Saleh",
-                "Soleiman",
-                "Soltan",
-                "Yaghoub",
-                "Yousef"
-        };
-
         File file = new File("src/main/resources/files/" + files[0]);
         Scanner reader = new Scanner(file);
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            lastNamesEnglish.add(Arrays.toString(data.split("\n")));
+            lastNamesEnglish.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
         }
 
         reader.close();
-        String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size())).replace("[", "").replace("]", "");
+        for (int i = 0; i < 22; i++) someArabicNames.add(lastNamesEnglish.get(i));
+        String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
         if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra"))
             lastName += "vi";
@@ -139,7 +113,7 @@ public class PersianNames {
             lastName += new String[]{"i", ""}[(byte) (Math.round(Math.random()))];
         }
 
-        if (Arrays.asList(arabicNames).contains(lastName.substring(0, lastName.length() - 1))) {
+        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
             if (!Objects.equals(prefix, "") && prefix.charAt(prefix.length() -1) == lastName.toLowerCase().charAt(0))
                 lastName = prefix + " " + lastName;
@@ -176,11 +150,11 @@ public class PersianNames {
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            firstNamesFarsi.add((Arrays.toString(data.split("\n"))));
+            firstNamesFarsi.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
         }
 
         reader.close();
-        return firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size())).replace("[", "").replace("]", "");
+        return firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
     }
 
     public static String firstNameFarsi() throws FileNotFoundException {
@@ -228,44 +202,17 @@ public class PersianNames {
                 " نژاد"
         };
 
-        // Arabic Names
-        arabicNames = new String[]{
-                "ابراهیم",
-                "ابوالفضل",
-                "احمد",
-                "اسماعیل",
-                "اکبر",
-                "حسن",
-                "حسین",
-                "حکیم",
-                "داود",
-                "رحمان",
-                "رحیم",
-                "سلطان",
-                "سلیمان",
-                "صالح",
-                "عباس",
-                "عبدالله",
-                "کمال",
-                "محمد",
-                "محمود",
-                "منصور",
-                "ناصر",
-                "نصیر",
-                "یعقوب",
-                "یوسف"
-        };
-
         File file = new File("src/main/resources/files/" + files[2]);
         Scanner reader = new Scanner(file);
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            lastNamesFarsi.add(Arrays.toString(data.split("\n")));
+            lastNamesFarsi.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
         }
 
         reader.close();
-        String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size())).replace("[", "").replace("]", "");
+        for (int i = 0; i < 22; i++) someArabicNames.add(lastNamesFarsi.get(i));
+        String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری"))
             lastName = lastName.replace("ی", "وی");
@@ -283,7 +230,7 @@ public class PersianNames {
             lastName += new String[]{"ی", ""}[(byte) (Math.round(Math.random()))];
         }
 
-        if (Arrays.asList(arabicNames).contains(lastName.substring(0, lastName.length() - 1)))
+        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1)))
             lastName = somePrefixes[(byte) (Math.random() * somePrefixes.length)] + lastName;
         else if (lastName.charAt(lastName.length() -1) == 'ی')
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
