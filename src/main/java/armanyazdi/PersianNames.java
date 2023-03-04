@@ -33,7 +33,7 @@ public class PersianNames {
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            firstNamesEnglish.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
+            firstNamesEnglish.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
         }
 
         reader.close();
@@ -90,7 +90,7 @@ public class PersianNames {
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            lastNamesEnglish.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
+            lastNamesEnglish.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
         }
 
         reader.close();
@@ -105,9 +105,9 @@ public class PersianNames {
             lastName = lastName.replace("i", new String[]{"i", "avi"}[(byte) (Math.round(Math.random()))]);
         else if (lastName.equals("Khosro"))
             lastName = lastName.replace("ro", "ravi");
-        else if (lastName.charAt(lastName.length() -1) == 'a' || lastName.charAt(lastName.length() -1) == 'o' || lastName.charAt(lastName.length() -1) == 'u')
+        else if (lastName.charAt(lastName.length() - 1) == 'a' || lastName.charAt(lastName.length() - 1) == 'o' || lastName.charAt(lastName.length() - 1) == 'u')
             lastName += "ei";
-        else if (lastName.charAt(lastName.length() -1) == 'i')
+        else if (lastName.charAt(lastName.length() - 1) == 'i')
             assert true;
         else {
             lastName += new String[]{"i", ""}[(byte) (Math.round(Math.random()))];
@@ -115,16 +115,16 @@ public class PersianNames {
 
         if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
-            if (!Objects.equals(prefix, "") && prefix.charAt(prefix.length() -1) == lastName.toLowerCase().charAt(0))
+            if (!Objects.equals(prefix, "") && prefix.charAt(prefix.length() - 1) == lastName.toLowerCase().charAt(0))
                 lastName = prefix + " " + lastName;
             else
                 lastName = prefix + lastName.toLowerCase();
         }
-        else if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) == 'i')
+        else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) == 'i')
             lastName += "";
-        else if (lastName.length() > 10 && lastName.charAt(lastName.length() -1) != 'i')
+        else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) != 'i')
             lastName += "i";
-        else if (lastName.charAt(lastName.length() -1) == 'i')
+        else if (lastName.charAt(lastName.length() - 1) == 'i')
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
@@ -150,7 +150,7 @@ public class PersianNames {
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            firstNamesFarsi.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
+            firstNamesFarsi.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
         }
 
         reader.close();
@@ -207,7 +207,7 @@ public class PersianNames {
 
         while (reader.hasNextLine()) {
             String data = reader.nextLine();
-            lastNamesFarsi.add(Arrays.toString(data.split("\n")).replace("[", "").replace("]", ""));
+            lastNamesFarsi.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
         }
 
         reader.close();
@@ -222,9 +222,9 @@ public class PersianNames {
             lastName = lastName.replace("ی", new String[]{"ی", "وی"}[(byte) (Math.round(Math.random()))]);
         else if (lastName.equals("خسرو"))
             assert true;
-        else if (lastName.charAt(lastName.length() -1) == 'ا' || lastName.charAt(lastName.length() -1) == 'و')
+        else if (lastName.charAt(lastName.length() - 1) == 'ا' || lastName.charAt(lastName.length() - 1) == 'و')
             lastName += "یی";
-        else if (lastName.charAt(lastName.length() -1) == 'ی')
+        else if (lastName.charAt(lastName.length() - 1) == 'ی')
             assert true;
         else {
             lastName += new String[]{"ی", ""}[(byte) (Math.round(Math.random()))];
@@ -232,7 +232,7 @@ public class PersianNames {
 
         if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1)))
             lastName = somePrefixes[(byte) (Math.random() * somePrefixes.length)] + lastName;
-        else if (lastName.charAt(lastName.length() -1) == 'ی')
+        else if (lastName.charAt(lastName.length() - 1) == 'ی')
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
