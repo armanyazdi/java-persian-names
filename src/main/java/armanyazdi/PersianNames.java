@@ -21,7 +21,6 @@ public class PersianNames {
         switch (sex.toLowerCase()) {
             case "male", "m" -> genderNumber = 0;
             case "female", "f" -> genderNumber = 1;
-            case "random", "r" -> genderNumber = (byte) Math.round(Math.random());
             default -> genderNumber = (byte) Math.round(Math.random());
         }
     }
@@ -116,13 +115,17 @@ public class PersianNames {
             lastName += new String[]{"i", ""}[(byte) (Math.round(Math.random()))];
         }
 
-        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1))
-                || someArabicNames.contains(lastName.substring(0, lastName.length() - 2))) {
+        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1)) ||
+                someArabicNames.contains(lastName.substring(0, lastName.length() - 2))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
-            if (!Objects.equals(prefix, "") && prefix.charAt(prefix.length() - 1) == lastName.toLowerCase().charAt(0))
+            String suffix = someSuffixes[(byte) (Math.random() * someSuffixes.length)];
+
+            if (suffix.equals("") && !Objects.equals(prefix, "") && prefix.charAt(prefix.length() - 1) == lastName.toLowerCase().charAt(0))
                 lastName = prefix + " " + lastName;
-            else
+            else if (suffix.equals(""))
                 lastName = prefix + lastName.toLowerCase();
+            else
+                lastName += suffix;
         }
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) == 'i')
             lastName += "";
@@ -237,9 +240,16 @@ public class PersianNames {
             lastName += new String[]{"ی", ""}[(byte) (Math.round(Math.random()))];
         }
 
-        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1))
-                || someArabicNames.contains(lastName.substring(0, lastName.length() - 2)))
-            lastName = somePrefixes[(byte) (Math.random() * somePrefixes.length)] + lastName;
+        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1)) ||
+                someArabicNames.contains(lastName.substring(0, lastName.length() - 2))) {
+            String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
+            String suffix = someSuffixes[(byte) (Math.random() * someSuffixes.length)];
+
+            if (suffix.equals(""))
+                lastName = prefix + lastName;
+            else
+                lastName += suffix;
+        }
         else if (lastName.charAt(lastName.length() - 1) == 'ی')
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
