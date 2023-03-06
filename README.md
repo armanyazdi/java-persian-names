@@ -67,7 +67,7 @@ String lastName = PersianNames.lastNameFarsi()
 System.out.println(PersianNames.firstNameFarsi("m")); // آرمان
 System.out.println(PersianNames.firstNameFarsi("f")); // ساحل
 System.out.println(PersianNames.firstNameFarsi("r")); // علیرضا
-System.out.println(PersianNames.lastNameFarsi());     // اسماعیلی فر
+System.out.println(PersianNames.lastNameFarsi());     // شیخ اسماعیلی
 ```
 
 ### Generate First Names and Last Names in English:
