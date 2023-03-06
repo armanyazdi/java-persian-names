@@ -16,6 +16,7 @@ Nasser
 Nassir
 Rahim
 Rahman
+Reza
 Saleh
 Soleiman
 Soltan
@@ -223,7 +224,6 @@ Ramin
 Ramtin
 Rasam
 Rashid
-Reza
 Rezvan
 Roham
 Rostam
