@@ -41,9 +41,11 @@ public class PersianNames {
     public static String lastNameEnglish() throws IOException {
         // English Prefixes and Suffixes
         somePrefixes = new String[]{
-                "", "", "", "",
+                "", "", "", "", "",
                 "Mir",
                 "Agha",
+                "Pour",
+                "Nour",
                 "Shah",
                 "Haj",
                 "Haji",
@@ -160,9 +162,11 @@ public class PersianNames {
     public static String lastNameFarsi() throws IOException {
         // Farsi Prefixes and Suffixes
         somePrefixes = new String[]{
-                "", "", "", "",
+                "", "", "", "", "",
                 "میر",
                 "آقا",
+                "پور",
+                "نور",
                 "شاه ",
                 "حاج ",
                 "حاجی ",
