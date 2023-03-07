@@ -1,9 +1,9 @@
 package armanyazdi;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         // Generate Persian Full Names in Farsi:
         System.out.println(PersianNames.fullNameFarsi("male"));
         System.out.println(PersianNames.fullNameFarsi("female"));
