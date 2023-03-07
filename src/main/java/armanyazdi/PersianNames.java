@@ -119,6 +119,8 @@ public class PersianNames {
             else
                 lastName += suffix;
         }
+        else if ((lastName.charAt(lastName.length() - 1) == 'i' && lastName.length() <= 5) || (lastName.endsWith("ali") || lastName.endsWith("mahdi")))
+            lastName += new String[]{"pour", "zadeh", "far", "fard", "an", "kia", "khani", "vand", "nia", "nejad", "beigi"}[(byte) (Math.round(Math.random() * 10))];
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) == 'i')
             lastName += "";
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) != 'i')
@@ -127,9 +129,6 @@ public class PersianNames {
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
-
-        while (lastName.toLowerCase().endsWith("ali") || lastName.toLowerCase().endsWith("mahdi") || lastName.equals("Mani") || lastName.equals("Gholi"))
-            lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
 
         return lastName;
     }
@@ -237,13 +236,12 @@ public class PersianNames {
             else
                 lastName += suffix;
         }
+        else if ((lastName.charAt(lastName.length() - 1) == 'ی' && lastName.length() <= 4) || (lastName.endsWith("علی") || lastName.endsWith("مهدی")))
+            lastName += new String[]{" پور", " زاده", " فر", " فرد", "ان", " کیا", " خانی", " وند", " نیا", " نژاد", " بیگی"}[(byte) (Math.round(Math.random() * 10))];
         else if (lastName.charAt(lastName.length() - 1) == 'ی')
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
-
-        while (lastName.endsWith("علی") || lastName.endsWith("مهدی") || lastName.equals("مانی") || lastName.equals("قلی"))
-            lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
 
         return lastName;
     }
