@@ -1,11 +1,8 @@
 package armanyazdi;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class PersianNames {
     private static byte genderNumber;
@@ -25,25 +22,23 @@ public class PersianNames {
         }
     }
 
-    public static String firstNameEnglish(String sex) throws FileNotFoundException {
+    public static String firstNameEnglish(String sex) throws IOException {
         setGender(sex);
-        File file = new File("src/main/resources/files/" + files[genderNumber]);
-        Scanner reader = new Scanner(file);
 
-        while (reader.hasNextLine()) {
-            String data = reader.nextLine();
-            firstNamesEnglish.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
-        }
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[genderNumber]));
+        String line;
 
+        while ((line = reader.readLine()) != null) firstNamesEnglish.add(line);
         reader.close();
+
         return firstNamesEnglish.get((int) (Math.random() * firstNamesEnglish.size()));
     }
 
-    public static String firstNameEnglish() throws FileNotFoundException {
+    public static String firstNameEnglish() throws IOException {
         return firstNameEnglish("random");
     }
 
-    public static String lastNameEnglish() throws FileNotFoundException {
+    public static String lastNameEnglish() throws IOException {
         // English Prefixes and Suffixes
         somePrefixes = new String[]{
                 "", "", "", "",
@@ -87,15 +82,12 @@ public class PersianNames {
                 "beigi"
         };
 
-        File file = new File("src/main/resources/files/" + files[0]);
-        Scanner reader = new Scanner(file);
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[0]));
+        String line;
 
-        while (reader.hasNextLine()) {
-            String data = reader.nextLine();
-            lastNamesEnglish.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
-        }
-
+        while ((line = reader.readLine()) != null) lastNamesEnglish.add(line);
         reader.close();
+
         for (int i = 0; i < 23; i++) someArabicNames.add(lastNamesEnglish.get(i));
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
@@ -142,33 +134,31 @@ public class PersianNames {
         return lastName;
     }
 
-    public static String fullNameEnglish(String sex) throws FileNotFoundException {
+    public static String fullNameEnglish(String sex) throws IOException {
         return firstNameEnglish(sex) + " " + lastNameEnglish();
     }
 
-    public static String fullNameEnglish() throws FileNotFoundException {
+    public static String fullNameEnglish() throws IOException {
         return fullNameEnglish("random");
     }
 
-    public static String firstNameFarsi(String sex) throws FileNotFoundException {
+    public static String firstNameFarsi(String sex) throws IOException {
         setGender(sex);
-        File file = new File("src/main/resources/files/" + files[genderNumber + 2]);
-        Scanner reader = new Scanner(file);
 
-        while (reader.hasNextLine()) {
-            String data = reader.nextLine();
-            firstNamesFarsi.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
-        }
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[genderNumber + 2]));
+        String line;
 
+        while ((line = reader.readLine()) != null) firstNamesFarsi.add(line);
         reader.close();
+
         return firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
     }
 
-    public static String firstNameFarsi() throws FileNotFoundException {
+    public static String firstNameFarsi() throws IOException {
         return firstNameFarsi("random");
     }
 
-    public static String lastNameFarsi() throws FileNotFoundException {
+    public static String lastNameFarsi() throws IOException {
         // Farsi Prefixes and Suffixes
         somePrefixes = new String[]{
                 "", "", "", "",
@@ -212,15 +202,12 @@ public class PersianNames {
                 " بیگی"
         };
 
-        File file = new File("src/main/resources/files/" + files[2]);
-        Scanner reader = new Scanner(file);
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[2]));
+        String line;
 
-        while (reader.hasNextLine()) {
-            String data = reader.nextLine();
-            lastNamesFarsi.add(Arrays.toString(data.split("\n")).replaceAll("[\\[|\\]]", ""));
-        }
-
+        while ((line = reader.readLine()) != null) lastNamesFarsi.add(line);
         reader.close();
+
         for (int i = 0; i < 23; i++) someArabicNames.add(lastNamesFarsi.get(i));
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
@@ -261,11 +248,11 @@ public class PersianNames {
         return lastName;
     }
 
-    public static String fullNameFarsi(String sex) throws FileNotFoundException {
+    public static String fullNameFarsi(String sex) throws IOException {
         return firstNameFarsi(sex) + " " + lastNameFarsi();
     }
 
-    public static String fullNameFarsi() throws FileNotFoundException {
+    public static String fullNameFarsi() throws IOException {
         return fullNameFarsi("random");
     }
 }
