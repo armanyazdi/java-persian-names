@@ -121,7 +121,7 @@ public class PersianNames {
             else
                 lastName += suffix;
         }
-        else if ((lastName.charAt(lastName.length() - 1) == 'i' && lastName.length() <= 5) || (lastName.endsWith("ali") || lastName.endsWith("mahdi")))
+        else if ((lastName.length() <= 5 && lastName.charAt(lastName.length() - 1) == 'i') || (lastName.endsWith("ali") || lastName.endsWith("mahdi")))
             lastName += new String[]{"pour", "zadeh", "far", "fard", "an", "kia", "khani", "vand", "nia", "nejad", "beigi"}[(byte) (Math.round(Math.random() * 10))];
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) == 'i')
             lastName += "";
@@ -240,7 +240,7 @@ public class PersianNames {
             else
                 lastName += suffix;
         }
-        else if ((lastName.charAt(lastName.length() - 1) == 'ی' && lastName.length() <= 4) || (lastName.endsWith("علی") || lastName.endsWith("مهدی")))
+        else if ((lastName.length() <= 4 && lastName.charAt(lastName.length() - 1) == 'ی') || (lastName.endsWith("علی") || lastName.endsWith("مهدی")))
             lastName += new String[]{" پور", " زاده", " فر", " فرد", "ان", " کیا", " خانی", " وند", " نیا", " نژاد", " بیگی"}[(byte) (Math.round(Math.random() * 10))];
         else if (lastName.charAt(lastName.length() - 1) == 'ی')
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
