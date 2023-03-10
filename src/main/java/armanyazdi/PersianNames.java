@@ -26,7 +26,7 @@ public class PersianNames {
     public static String firstNameEnglish(String sex) throws IOException {
         setGender(sex);
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[genderNumber]));
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[genderNumber]));
         while ((line = reader.readLine()) != null) firstNamesEnglish.add(line);
         reader.close();
 
@@ -83,7 +83,7 @@ public class PersianNames {
                 "beigi"
         };
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[0]));
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[0]));
         while ((line = reader.readLine()) != null) lastNamesEnglish.add(line);
         reader.close();
 
@@ -141,7 +141,7 @@ public class PersianNames {
     public static String firstNameFarsi(String sex) throws IOException {
         setGender(sex);
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[genderNumber + 2]));
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[genderNumber + 2]));
         while ((line = reader.readLine()) != null) firstNamesFarsi.add(line);
         reader.close();
 
@@ -198,7 +198,7 @@ public class PersianNames {
                 " بیگی"
         };
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[2]));
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[2]));
         while ((line = reader.readLine()) != null) lastNamesFarsi.add(line);
         reader.close();
 
