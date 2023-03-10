@@ -15,5 +15,17 @@ public class Main {
         System.out.println(PersianNames.fullNameEnglish("f"));
         System.out.println(PersianNames.fullNameEnglish("r"));
         System.out.println(PersianNames.fullNameEnglish()); // Default: "random"
+
+        // Generate First Names and Last Names in Farsi:
+        System.out.println(PersianNames.firstNameFarsi("m"));
+        System.out.println(PersianNames.firstNameFarsi("f"));
+        System.out.println(PersianNames.firstNameFarsi("r"));
+        System.out.println(PersianNames.lastNameFarsi());
+
+        // Generate First Names and Last Names in English:
+        System.out.println(PersianNames.firstNameEnglish("m"));
+        System.out.println(PersianNames.firstNameEnglish("f"));
+        System.out.println(PersianNames.firstNameEnglish("r"));
+        System.out.println(PersianNames.lastNameEnglish());
     }
 }
