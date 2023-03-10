@@ -12,7 +12,7 @@ public class PersianNames {
     private static final ArrayList<String> lastNamesEnglish = new ArrayList<>();
     private static final ArrayList<String> firstNamesFarsi = new ArrayList<>();
     private static final ArrayList<String> lastNamesFarsi = new ArrayList<>();
-    private static final ArrayList<String> someArabicNames = new ArrayList<>();
+    private static final ArrayList<String> someNames = new ArrayList<>();
 
     private static void setGender(String sex) {
         switch (sex.toLowerCase()) {
@@ -90,7 +90,7 @@ public class PersianNames {
         while ((line = reader.readLine()) != null) lastNamesEnglish.add(line);
         reader.close();
 
-        for (int i = 0; i < 23; i++) someArabicNames.add(lastNamesEnglish.get(i));
+        for (int i = 0; i < 23; i++) someNames.add(lastNamesEnglish.get(i));
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
         if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra"))
@@ -109,8 +109,7 @@ public class PersianNames {
             lastName += new String[]{"i", ""}[(byte) (Math.round(Math.random()))];
         }
 
-        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1)) ||
-                someArabicNames.contains(lastName.substring(0, lastName.length() - 2))) {
+        if (someNames.contains(lastName.substring(0, lastName.length() - 1)) || someNames.contains(lastName.substring(0, lastName.length() - 2))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
             String suffix = someSuffixes[(byte) (Math.random() * someSuffixes.length)];
 
@@ -211,7 +210,7 @@ public class PersianNames {
         while ((line = reader.readLine()) != null) lastNamesFarsi.add(line);
         reader.close();
 
-        for (int i = 0; i < 23; i++) someArabicNames.add(lastNamesFarsi.get(i));
+        for (int i = 0; i < 23; i++) someNames.add(lastNamesFarsi.get(i));
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری"))
@@ -230,8 +229,7 @@ public class PersianNames {
             lastName += new String[]{"ی", ""}[(byte) (Math.round(Math.random()))];
         }
 
-        if (someArabicNames.contains(lastName.substring(0, lastName.length() - 1)) ||
-                someArabicNames.contains(lastName.substring(0, lastName.length() - 2))) {
+        if (someNames.contains(lastName.substring(0, lastName.length() - 1)) || someNames.contains(lastName.substring(0, lastName.length() - 2))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
             String suffix = someSuffixes[(byte) (Math.random() * someSuffixes.length)];
 
