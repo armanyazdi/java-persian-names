@@ -121,7 +121,7 @@ public class PersianNames {
             else
                 lastName += suffix;
         }
-        else if ((lastName.length() <= 5 && lastName.charAt(lastName.length() - 1) == 'i') || (lastName.endsWith("ali") || lastName.endsWith("mahdi")))
+        else if ((lastName.length() <= 5 && lastName.charAt(lastName.length() - 1) == 'i') || (lastName.toLowerCase().endsWith("ali") || lastName.toLowerCase().endsWith("mahdi")))
             lastName += new String[]{"pour", "zadeh", "far", "fard", "an", "kia", "khani", "vand", "nia", "nejad", "beigi"}[(byte) (Math.round(Math.random() * 10))];
         else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) == 'i')
             lastName += "";
