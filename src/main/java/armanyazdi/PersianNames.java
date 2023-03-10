@@ -7,6 +7,7 @@ import java.util.Objects;
 public class PersianNames {
     private static byte genderNumber;
     private static final String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
+    private static String line;
     private static String[] somePrefixes, someSuffixes, moreSuffixes;
     private static final ArrayList<String> firstNamesEnglish = new ArrayList<>();
     private static final ArrayList<String> lastNamesEnglish = new ArrayList<>();
@@ -26,8 +27,6 @@ public class PersianNames {
         setGender(sex);
 
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[genderNumber]));
-        String line;
-
         while ((line = reader.readLine()) != null) firstNamesEnglish.add(line);
         reader.close();
 
@@ -85,8 +84,6 @@ public class PersianNames {
         };
 
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[0]));
-        String line;
-
         while ((line = reader.readLine()) != null) lastNamesEnglish.add(line);
         reader.close();
 
@@ -112,7 +109,6 @@ public class PersianNames {
         if (someNames.contains(lastName.substring(0, lastName.length() - 1)) || someNames.contains(lastName.substring(0, lastName.length() - 2))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
             String suffix = someSuffixes[(byte) (Math.random() * someSuffixes.length)];
-
             if (suffix.equals("") && !Objects.equals(prefix, "") && prefix.charAt(prefix.length() - 1) == lastName.toLowerCase().charAt(0))
                 lastName = prefix + " " + lastName;
             else if (suffix.equals(""))
@@ -146,8 +142,6 @@ public class PersianNames {
         setGender(sex);
 
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[genderNumber + 2]));
-        String line;
-
         while ((line = reader.readLine()) != null) firstNamesFarsi.add(line);
         reader.close();
 
@@ -205,8 +199,6 @@ public class PersianNames {
         };
 
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/files/" + files[2]));
-        String line;
-
         while ((line = reader.readLine()) != null) lastNamesFarsi.add(line);
         reader.close();
 
@@ -232,7 +224,6 @@ public class PersianNames {
         if (someNames.contains(lastName.substring(0, lastName.length() - 1)) || someNames.contains(lastName.substring(0, lastName.length() - 2))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
             String suffix = someSuffixes[(byte) (Math.random() * someSuffixes.length)];
-
             if (suffix.equals(""))
                 lastName = prefix + lastName;
             else
