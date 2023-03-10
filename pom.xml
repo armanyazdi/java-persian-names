@@ -6,7 +6,7 @@
 
     <groupId>armanyazdi</groupId>
     <artifactId>persian-names</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
