@@ -1,4 +1,4 @@
-package armanyazdi;
+package com.armanyazdi;
 
 import java.io.IOException;
 
