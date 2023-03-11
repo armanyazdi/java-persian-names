@@ -1,4 +1,4 @@
-package armanyazdi;
+package com.armanyazdi;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,8 +6,6 @@ import java.util.Objects;
 
 public class PersianNames {
     private static byte genderNumber;
-    private static final String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
-    private static String line;
     private static String[] somePrefixes, someSuffixes, moreSuffixes;
     private static final ArrayList<String> firstNamesEnglish = new ArrayList<>();
     private static final ArrayList<String> lastNamesEnglish = new ArrayList<>();
@@ -23,18 +21,23 @@ public class PersianNames {
         }
     }
 
+    private static void fileReader(int number, ArrayList<String> list) throws IOException {
+        String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
+        String line;
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/".concat(files[number])));
+        while ((line = reader.readLine()) != null) list.add(line);
+        reader.close();
+    }
+
     public static String firstNameEnglish(String sex) throws IOException {
         setGender(sex);
-
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[genderNumber]));
-        while ((line = reader.readLine()) != null) firstNamesEnglish.add(line);
-        reader.close();
+        fileReader(genderNumber, firstNamesEnglish);
 
         return firstNamesEnglish.get((int) (Math.random() * firstNamesEnglish.size()));
     }
 
     public static String firstNameEnglish() throws IOException {
-        return firstNameEnglish("random");
+        return firstNameEnglish("r");
     }
 
     public static String lastNameEnglish() throws IOException {
@@ -83,11 +86,8 @@ public class PersianNames {
                 "beigi"
         };
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[0]));
-        while ((line = reader.readLine()) != null) lastNamesEnglish.add(line);
-        reader.close();
-
-        for (int i = 0; i < 23; i++) someNames.add(lastNamesEnglish.get(i));
+        fileReader(0, lastNamesEnglish);
+        for (byte i = 0; i < 23; i++) someNames.add(lastNamesEnglish.get(i));
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
         if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra"))
@@ -98,13 +98,12 @@ public class PersianNames {
             lastName = lastName.replace("i", new String[]{"i", "avi"}[(byte) (Math.round(Math.random()))]);
         else if (lastName.equals("Khosro"))
             lastName = lastName.replace("ro", "ravi");
-        else if (lastName.charAt(lastName.length() - 1) == 'a' || lastName.charAt(lastName.length() - 1) == 'o' || lastName.charAt(lastName.length() - 1) == 'u')
+        else if (lastName.endsWith("a") || lastName.endsWith("o") || lastName.endsWith("u"))
             lastName += "ei";
-        else if (lastName.charAt(lastName.length() - 1) == 'i')
+        else if (lastName.endsWith("i"))
             assert true;
-        else {
+        else
             lastName += new String[]{"i", ""}[(byte) (Math.round(Math.random()))];
-        }
 
         if (someNames.contains(lastName.substring(0, lastName.length() - 1)) || someNames.contains(lastName.substring(0, lastName.length() - 2))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
@@ -116,13 +115,13 @@ public class PersianNames {
             else
                 lastName += suffix;
         }
-        else if ((lastName.length() <= 5 && lastName.charAt(lastName.length() - 1) == 'i') || (lastName.toLowerCase().endsWith("ali") || lastName.toLowerCase().endsWith("mahdi")))
+        else if ((lastName.length() <= 5 && lastName.endsWith("i")) || (lastName.toLowerCase().endsWith("ali") || lastName.toLowerCase().endsWith("mahdi")))
             lastName += new String[]{"pour", "zadeh", "far", "fard", "an", "kia", "khani", "vand", "nia", "nejad", "beigi"}[(byte) (Math.round(Math.random() * 10))];
-        else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) == 'i')
+        else if (lastName.length() > 10 && lastName.endsWith("i"))
             lastName += "";
-        else if (lastName.length() > 10 && lastName.charAt(lastName.length() - 1) != 'i')
+        else if (lastName.length() > 10 && !lastName.endsWith("i"))
             lastName += "i";
-        else if (lastName.charAt(lastName.length() - 1) == 'i')
+        else if (lastName.endsWith("i"))
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
@@ -135,21 +134,18 @@ public class PersianNames {
     }
 
     public static String fullNameEnglish() throws IOException {
-        return fullNameEnglish("random");
+        return fullNameEnglish("r");
     }
 
     public static String firstNameFarsi(String sex) throws IOException {
         setGender(sex);
-
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[genderNumber + 2]));
-        while ((line = reader.readLine()) != null) firstNamesFarsi.add(line);
-        reader.close();
+        fileReader(genderNumber + 2, firstNamesFarsi);
 
         return firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
     }
 
     public static String firstNameFarsi() throws IOException {
-        return firstNameFarsi("random");
+        return firstNameFarsi("r");
     }
 
     public static String lastNameFarsi() throws IOException {
@@ -198,11 +194,8 @@ public class PersianNames {
                 " بیگی"
         };
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/" + files[2]));
-        while ((line = reader.readLine()) != null) lastNamesFarsi.add(line);
-        reader.close();
-
-        for (int i = 0; i < 23; i++) someNames.add(lastNamesFarsi.get(i));
+        fileReader(2, lastNamesFarsi);
+        for (byte i = 0; i < 23; i++) someNames.add(lastNamesFarsi.get(i));
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری"))
@@ -213,13 +206,12 @@ public class PersianNames {
             lastName = lastName.replace("ی", new String[]{"ی", "وی"}[(byte) (Math.round(Math.random()))]);
         else if (lastName.equals("خسرو"))
             assert true;
-        else if (lastName.charAt(lastName.length() - 1) == 'ا' || lastName.charAt(lastName.length() - 1) == 'و')
+        else if (lastName.endsWith("ا") || lastName.endsWith("و"))
             lastName += "یی";
-        else if (lastName.charAt(lastName.length() - 1) == 'ی')
+        else if (lastName.endsWith("ی"))
             assert true;
-        else {
+        else
             lastName += new String[]{"ی", ""}[(byte) (Math.round(Math.random()))];
-        }
 
         if (someNames.contains(lastName.substring(0, lastName.length() - 1)) || someNames.contains(lastName.substring(0, lastName.length() - 2))) {
             String prefix = somePrefixes[(byte) (Math.random() * somePrefixes.length)];
@@ -229,9 +221,9 @@ public class PersianNames {
             else
                 lastName += suffix;
         }
-        else if ((lastName.length() <= 4 && lastName.charAt(lastName.length() - 1) == 'ی') || (lastName.endsWith("علی") || lastName.endsWith("مهدی")))
+        else if ((lastName.length() <= 4 && lastName.endsWith("ی")) || (lastName.endsWith("علی") || lastName.endsWith("مهدی")))
             lastName += new String[]{" پور", " زاده", " فر", " فرد", "ان", " کیا", " خانی", " وند", " نیا", " نژاد", " بیگی"}[(byte) (Math.round(Math.random() * 10))];
-        else if (lastName.charAt(lastName.length() - 1) == 'ی')
+        else if (lastName.endsWith("ی"))
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
@@ -244,6 +236,6 @@ public class PersianNames {
     }
 
     public static String fullNameFarsi() throws IOException {
-        return fullNameFarsi("random");
+        return fullNameFarsi("r");
     }
 }
