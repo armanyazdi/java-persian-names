@@ -21,26 +21,32 @@ public class PersianNames {
         }
     }
 
-    private static void fileReader(int number, ArrayList<String> list) throws IOException {
+    private static void fileReader(int number, ArrayList<String> list) {
         String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
-        String line;
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/".concat(files[number])));
-        while ((line = reader.readLine()) != null) list.add(line);
-        reader.close();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/".concat(files[number])));
+            String line;
+            while ((line = reader.readLine()) != null) list.add(line);
+            reader.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static String firstNameEnglish(String sex) throws IOException {
+    public static String firstNameEnglish(String sex) {
         setGender(sex);
         fileReader(genderNumber, firstNamesEnglish);
 
         return firstNamesEnglish.get((int) (Math.random() * firstNamesEnglish.size()));
     }
 
-    public static String firstNameEnglish() throws IOException {
+    public static String firstNameEnglish() {
         return firstNameEnglish("r");
     }
 
-    public static String lastNameEnglish() throws IOException {
+    public static String lastNameEnglish() {
         // English Prefixes and Suffixes
         somePrefixes = new String[]{
                 "", "", "", "", "",
@@ -129,26 +135,26 @@ public class PersianNames {
         return lastName;
     }
 
-    public static String fullNameEnglish(String sex) throws IOException {
+    public static String fullNameEnglish(String sex) {
         return firstNameEnglish(sex) + " " + lastNameEnglish();
     }
 
-    public static String fullNameEnglish() throws IOException {
+    public static String fullNameEnglish() {
         return fullNameEnglish("r");
     }
 
-    public static String firstNameFarsi(String sex) throws IOException {
+    public static String firstNameFarsi(String sex) {
         setGender(sex);
         fileReader(genderNumber + 2, firstNamesFarsi);
 
         return firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
     }
 
-    public static String firstNameFarsi() throws IOException {
+    public static String firstNameFarsi() {
         return firstNameFarsi("r");
     }
 
-    public static String lastNameFarsi() throws IOException {
+    public static String lastNameFarsi() {
         // Farsi Prefixes and Suffixes
         somePrefixes = new String[]{
                 "", "", "", "", "",
@@ -231,11 +237,11 @@ public class PersianNames {
         return lastName;
     }
 
-    public static String fullNameFarsi(String sex) throws IOException {
+    public static String fullNameFarsi(String sex) {
         return firstNameFarsi(sex) + " " + lastNameFarsi();
     }
 
-    public static String fullNameFarsi() throws IOException {
+    public static String fullNameFarsi() {
         return fullNameFarsi("r");
     }
 }
