@@ -62,7 +62,7 @@ public class PersianNames {
                 "Beig"
         };
         someSuffixes = new String[]{
-                "", "", "", "", "", "", "", "", "", "", "", "", "",
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
                 "pour",
                 "zadeh",
                 "far",
@@ -74,8 +74,10 @@ public class PersianNames {
                 "khah",
                 "nia",
                 "mehr",
+                "azar",
                 "nejad",
-                "bayat"
+                "bayat",
+                "yekta"
         };
         moreSuffixes = new String[]{
                 "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i",
@@ -170,7 +172,7 @@ public class PersianNames {
                 "بیگ "
         };
         someSuffixes = new String[]{
-                "", "", "", "", "", "", "", "", "", "", "", "", "",
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
                 " پور",
                 " زاده",
                 " فر",
@@ -182,8 +184,10 @@ public class PersianNames {
                 " خواه",
                 " نیا",
                 " مهر",
+                " آذر",
                 " نژاد",
-                " بیات"
+                " بیات",
+                " یکتا"
         };
         moreSuffixes = new String[]{
                 "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی", "ی",
