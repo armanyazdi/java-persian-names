@@ -54,14 +54,18 @@ public class PersianNames {
                 "Abou",
                 "Pour",
                 "Nour",
+                "Nasr",
                 "Seyed",
                 "Amir",
                 "Aziz",
                 "Shah",
+                "Nik",
                 "Haj",
                 "Haji",
                 "Sheikh",
                 "Mirza",
+                "Ostad",
+                "Malek",
                 "Beig",
                 "Arab"
         };
@@ -85,6 +89,7 @@ public class PersianNames {
                 "yekta", "",
                 "azad", "",
                 "zare", "",
+                "jam", "",
         };
         moreSuffixes = new String[]{
                 "pour", "i",
@@ -102,7 +107,7 @@ public class PersianNames {
         };
 
         fileReader(0, lastNamesEnglish);
-        for (byte i = 0; i < 23; i++) someNames.add(lastNamesEnglish.get(i));
+        for (byte i = 0; i < 25; i++) someNames.add(lastNamesEnglish.get(i));
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
         if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra"))
@@ -171,14 +176,18 @@ public class PersianNames {
                 "ابو",
                 "پور",
                 "نور",
+                "نصر",
                 "سید",
                 "امیر",
                 "عزیز",
                 "شاه ",
+                "نیک ",
                 "حاج ",
                 "حاجی ",
                 "شیخ ",
                 "میرزا ",
+                "استاد ",
+                "ملک ",
                 "بیگ ",
                 "عرب "
         };
@@ -202,6 +211,7 @@ public class PersianNames {
                 " یکتا", "",
                 " آزاد", "",
                 " زارع", "",
+                " جم", "",
         };
         moreSuffixes = new String[]{
                 " پور", "ی",
@@ -219,7 +229,7 @@ public class PersianNames {
         };
 
         fileReader(2, lastNamesFarsi);
-        for (byte i = 0; i < 23; i++) someNames.add(lastNamesFarsi.get(i));
+        for (byte i = 0; i < 25; i++) someNames.add(lastNamesFarsi.get(i));
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری"))
