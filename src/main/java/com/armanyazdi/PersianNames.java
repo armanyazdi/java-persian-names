@@ -12,6 +12,7 @@ public class PersianNames {
     private static final ArrayList<String> firstNamesFarsi = new ArrayList<>();
     private static final ArrayList<String> lastNamesFarsi = new ArrayList<>();
     private static final ArrayList<String> someNames = new ArrayList<>();
+    private static final ArrayList<String> moreNames = new ArrayList<>();
 
     private static void setGender(String sex) {
         switch (sex.toLowerCase()) {
@@ -108,7 +109,11 @@ public class PersianNames {
 
         fileReader(0, lastNamesEnglish);
         for (byte i = 0; i < 26; i++) someNames.add(lastNamesEnglish.get(i));
+        for (byte i = 26; i < 44; i++) moreNames.add(lastNamesEnglish.get(i));
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
+
+        while (moreNames.contains(lastName))
+            lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
         if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra"))
             lastName += "vi";
@@ -230,7 +235,11 @@ public class PersianNames {
 
         fileReader(2, lastNamesFarsi);
         for (byte i = 0; i < 26; i++) someNames.add(lastNamesFarsi.get(i));
+        for (byte i = 26; i < 44; i++) moreNames.add(lastNamesFarsi.get(i));
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
+
+        while (moreNames.contains(lastName))
+            lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری"))
             lastName = lastName.replace("ی", "وی");
