@@ -90,7 +90,6 @@ public class PersianNames {
                 "yekta", "",
                 "azad", "",
                 "zare", "",
-                "jam", "",
         };
         moreSuffixes = new String[]{
                 "pour", "i",
@@ -213,7 +212,6 @@ public class PersianNames {
                 " یکتا", "",
                 " آزاد", "",
                 " زارع", "",
-                " جم", "",
         };
         moreSuffixes = new String[]{
                 " پور", "ی",
