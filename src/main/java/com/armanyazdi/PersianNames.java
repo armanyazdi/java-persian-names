@@ -90,6 +90,7 @@ public class PersianNames {
                 "nejad", "",
                 "bayat", "",
                 "yekta", "",
+                "sabet", "",
                 "azad", "",
                 "zare", "",
         };
@@ -217,6 +218,7 @@ public class PersianNames {
                 " نژاد", "",
                 " بیات", "",
                 " یکتا", "",
+                " ثابت", "",
                 " آزاد", "",
                 " زارع", "",
         };
