@@ -117,7 +117,7 @@ public class PersianNames {
         while (illegalNames.contains(lastName))
             lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
-        if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra"))
+        if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra") || lastName.equals("Mojtaba"))
             lastName += "vi";
         else if (lastName.equals("Morteza"))
             lastName = lastName.replace("ez", "az") + "vi";
@@ -245,7 +245,7 @@ public class PersianNames {
         while (illegalNames.contains(lastName))
             lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
-        if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری"))
+        if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری") || lastName.equals("مجتبی"))
             lastName = lastName.replace("ی", "وی");
         else if (lastName.equals("یحیی"))
             lastName = lastName.replace("یی", "یوی");
