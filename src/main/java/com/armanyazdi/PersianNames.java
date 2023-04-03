@@ -64,6 +64,7 @@ public class PersianNames {
                 "Nik",
                 "Haj",
                 "Haji",
+                "Soufi",
                 "Sheikh",
                 "Mirza",
                 "Ostad",
@@ -111,7 +112,7 @@ public class PersianNames {
 
         fileReader(0, lastNamesEnglish);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNamesEnglish.get(i));
-        for (byte i = 26; i < 49; i++) illegalNames.add(lastNamesEnglish.get(i));
+        for (byte i = 26; i < 50; i++) illegalNames.add(lastNamesEnglish.get(i));
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
         while (illegalNames.contains(lastName))
@@ -192,6 +193,7 @@ public class PersianNames {
                 "نیک ",
                 "حاج ",
                 "حاجی ",
+                "صوفی ",
                 "شیخ ",
                 "میرزا ",
                 "استاد ",
@@ -239,7 +241,7 @@ public class PersianNames {
 
         fileReader(2, lastNamesFarsi);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNamesFarsi.get(i));
-        for (byte i = 26; i < 49; i++) illegalNames.add(lastNamesFarsi.get(i));
+        for (byte i = 26; i < 50; i++) illegalNames.add(lastNamesFarsi.get(i));
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
         while (illegalNames.contains(lastName))
