@@ -26,6 +26,7 @@ Soltan
 Yousef
 Abtin
 Ahoura
+Aidin
 Arash
 Aria
 Arian
@@ -126,6 +127,7 @@ Farshad
 Farshid
 Farzad
 Farzam
+Farzan
 Farzin
 Fazel
 Ferdos
