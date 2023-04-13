@@ -23,7 +23,16 @@ public class PersianNames {
     }
 
     private static void fileReader(int number, ArrayList<String> list) {
-        String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
+        String[] files = {
+                "male_en.txt",
+                "female_en.txt",
+                "male_fa.txt",
+                "female_fa.txt",
+                "illegal_en.txt",
+                "arabic_en.txt",
+                "illegal_fa.txt",
+                "arabic_fa.txt"
+        };
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/".concat(files[number])));
@@ -112,8 +121,9 @@ public class PersianNames {
         };
 
         fileReader(0, lastNamesEnglish);
-        for (byte i = 0; i < 26; i++) arabicNames.add(lastNamesEnglish.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNamesEnglish.get(i));
+        fileReader(4, illegalNames);
+        fileReader(5, arabicNames);
+
         String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
 
         while (illegalNames.contains(lastName))
@@ -242,8 +252,9 @@ public class PersianNames {
         };
 
         fileReader(2, lastNamesFarsi);
-        for (byte i = 0; i < 26; i++) arabicNames.add(lastNamesFarsi.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNamesFarsi.get(i));
+        fileReader(6, illegalNames);
+        fileReader(7, arabicNames);
+
         String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
 
         while (illegalNames.contains(lastName))
