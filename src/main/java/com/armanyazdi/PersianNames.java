@@ -7,10 +7,8 @@ import java.util.Objects;
 public class PersianNames {
     private static byte genderNumber;
     private static String[] somePrefixes, someSuffixes, moreSuffixes;
-    private static final ArrayList<String> firstNamesEnglish = new ArrayList<>();
-    private static final ArrayList<String> lastNamesEnglish = new ArrayList<>();
-    private static final ArrayList<String> firstNamesFarsi = new ArrayList<>();
-    private static final ArrayList<String> lastNamesFarsi = new ArrayList<>();
+    private static final ArrayList<String> firstNames = new ArrayList<>();
+    private static final ArrayList<String> lastNames = new ArrayList<>();
     private static final ArrayList<String> illegalNames = new ArrayList<>();
     private static final ArrayList<String> arabicNames = new ArrayList<>();
 
@@ -22,7 +20,7 @@ public class PersianNames {
         }
     }
 
-    private static void fileReader(int number, ArrayList<String> list) {
+    private static void readFile(int number, ArrayList<String> list) {
         String[] files = {"male_en.txt", "female_en.txt", "male_fa.txt", "female_fa.txt"};
 
         try {
@@ -38,9 +36,11 @@ public class PersianNames {
 
     public static String firstNameEnglish(String sex) {
         setGender(sex);
-        fileReader(genderNumber, firstNamesEnglish);
+        readFile(genderNumber, firstNames);
+        String firstName = firstNames.get((int) (Math.random() * firstNames.size()));
+        firstNames.clear();
 
-        return firstNamesEnglish.get((int) (Math.random() * firstNamesEnglish.size()));
+        return firstName;
     }
 
     public static String firstNameEnglish() {
@@ -65,6 +65,8 @@ public class PersianNames {
                 "Haj",
                 "Haji",
                 "Soufi",
+                "Afzal",
+                "Fazel",
                 "Sheikh",
                 "Mirza",
                 "Ostad",
@@ -112,13 +114,13 @@ public class PersianNames {
                 "zare", "i",
         };
 
-        fileReader(0, lastNamesEnglish);
-        for (byte i = 0; i < 26; i++) arabicNames.add(lastNamesEnglish.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNamesEnglish.get(i));
-        String lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
+        readFile(0, lastNames);
+        for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
+        for (byte i = 26; i < 51; i++) illegalNames.add(lastNames.get(i));
+        String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
-            lastName = lastNamesEnglish.get((int) (Math.random() * lastNamesEnglish.size()));
+            lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         if (lastName.equals("Mostafa") || lastName.equals("Mousa") || lastName.equals("Yahya") || lastName.equals("Kasra") || lastName.equals("Mojtaba"))
             lastName += "vi";
@@ -156,6 +158,8 @@ public class PersianNames {
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
 
+        lastNames.clear();
+
         return lastName;
     }
 
@@ -169,9 +173,11 @@ public class PersianNames {
 
     public static String firstNameFarsi(String sex) {
         setGender(sex);
-        fileReader(genderNumber + 2, firstNamesFarsi);
+        readFile(genderNumber + 2, firstNames);
+        String firstName = firstNames.get((int) (Math.random() * firstNames.size()));
+        firstNames.clear();
 
-        return firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
+        return firstName;
     }
 
     public static String firstNameFarsi() {
@@ -196,6 +202,8 @@ public class PersianNames {
                 "حاج ",
                 "حاجی ",
                 "صوفی ",
+                "افضل ",
+                "فاضل ",
                 "شیخ ",
                 "میرزا ",
                 "استاد ",
@@ -243,13 +251,13 @@ public class PersianNames {
                 " زارع", "ی",
         };
 
-        fileReader(2, lastNamesFarsi);
-        for (byte i = 0; i < 26; i++) arabicNames.add(lastNamesFarsi.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNamesFarsi.get(i));
-        String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
+        readFile(2, lastNames);
+        for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
+        for (byte i = 26; i < 51; i++) illegalNames.add(lastNames.get(i));
+        String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
-            lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
+            lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری") || lastName.equals("مجتبی"))
             lastName = lastName.replace("ی", "وی");
@@ -280,6 +288,8 @@ public class PersianNames {
             lastName += someSuffixes[(byte) (Math.random() * someSuffixes.length)];
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
+
+        lastNames.clear();
 
         return lastName;
     }
