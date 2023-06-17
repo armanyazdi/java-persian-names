@@ -17,10 +17,10 @@ Let's take a look at what an example test case would look like using `persian-na
 ### Generate Persian Full Names in Farsi:
 
 ```java
-String fullName = PersianNames.fullNameFarsi("male")   // or fullNameFarsi("m")
-String fullName = PersianNames.fullNameFarsi("female") // or fullNameFarsi("f")
-String fullName = PersianNames.fullNameFarsi("random") // or fullNameFarsi("r")
-String fullName = PersianNames.fullNameFarsi()         // Default: "random"
+String fullName = PersianNames.fullNameFarsi("male");   // or fullNameFarsi("m")
+String fullName = PersianNames.fullNameFarsi("female"); // or fullNameFarsi("f")
+String fullName = PersianNames.fullNameFarsi("random"); // or fullNameFarsi("r")
+String fullName = PersianNames.fullNameFarsi();         // Default: "random"
 ```
 
 #### Example:
@@ -34,10 +34,10 @@ System.out.println(PersianNames.fullNameFarsi("r")); // بیتا خسروی را
 ### Generate Persian Full Names in English:
 
 ```java
-String fullName = PersianNames.fullNameEnglish("male")   // or fullNameEnglish("m")
-String fullName = PersianNames.fullNameEnglish("female") // or fullNameEnglish("f")
-String fullName = PersianNames.fullNameEnglish("random") // or fullNameEnglish("r")
-String fullName = PersianNames.fullNameEnglish()         // Default: "random"
+String fullName = PersianNames.fullNameEnglish("male");   // or fullNameEnglish("m")
+String fullName = PersianNames.fullNameEnglish("female"); // or fullNameEnglish("f")
+String fullName = PersianNames.fullNameEnglish("random"); // or fullNameEnglish("r")
+String fullName = PersianNames.fullNameEnglish();         // Default: "random"
 ```
 
 #### Example:
@@ -52,13 +52,13 @@ System.out.println(PersianNames.fullNameEnglish("r")); // Danial Ferdosi
 
 ```java
 // First Name
-String firstName = PersianNames.firstNameFarsi("male")   // or firstNameFarsi("m")
-String firstName = PersianNames.firstNameFarsi("female") // or firstNameFarsi("f")
-String firstName = PersianNames.firstNameFarsi("random") // or firstNameFarsi("r")
-String firstName = PersianNames.firstNameFarsi()         // Default: "random"
+String firstName = PersianNames.firstNameFarsi("male");   // or firstNameFarsi("m")
+String firstName = PersianNames.firstNameFarsi("female"); // or firstNameFarsi("f")
+String firstName = PersianNames.firstNameFarsi("random"); // or firstNameFarsi("r")
+String firstName = PersianNames.firstNameFarsi();         // Default: "random"
 
 // Last Name
-String lastName = PersianNames.lastNameFarsi()
+String lastName = PersianNames.lastNameFarsi();
 ```
 
 #### Example:
@@ -74,13 +74,13 @@ System.out.println(PersianNames.lastNameFarsi());     // شیخ اسماعیلی
 
 ```java
 // First Name
-String firstName = PersianNames.firstNameEnglish("male")   // or firstNameEnglish("m")
-String firstName = PersianNames.firstNameEnglish("female") // or firstNameEnglish("f")
-String firstName = PersianNames.firstNameEnglish("random") // or firstNameEnglish("r")
-String firstName = PersianNames.firstNameEnglish()         // Default: "random"
+String firstName = PersianNames.firstNameEnglish("male");   // or firstNameEnglish("m")
+String firstName = PersianNames.firstNameEnglish("female"); // or firstNameEnglish("f")
+String firstName = PersianNames.firstNameEnglish("random"); // or firstNameEnglish("r")
+String firstName = PersianNames.firstNameEnglish();         // Default: "random"
 
 // Last Name
-String lastName = PersianNames.lastNameEnglish()
+String lastName = PersianNames.lastNameEnglish();
 ```
 
 #### Example:
