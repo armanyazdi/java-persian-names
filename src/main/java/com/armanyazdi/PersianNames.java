@@ -98,6 +98,7 @@ public class PersianNames {
                 "zare", "",
                 "moghaddam", "",
                 "roshan", "",
+                "tabar", "",
         };
         moreSuffixes = new String[]{
                 "pour", "i",
@@ -112,6 +113,7 @@ public class PersianNames {
                 "nejad", "i",
                 "beigi", "i",
                 "zare", "i",
+                "tabar", "i",
         };
 
         readFile(0, lastNames);
@@ -235,6 +237,7 @@ public class PersianNames {
                 " زارع", "",
                 " مقدم", "",
                 " روشن", "",
+                " تبار", "",
         };
         moreSuffixes = new String[]{
                 " پور", "ی",
@@ -249,6 +252,7 @@ public class PersianNames {
                 " نژاد", "ی",
                 " بیگی", "ی",
                 " زارع", "ی",
+                " تبار", "ی",
         };
 
         readFile(2, lastNames);
