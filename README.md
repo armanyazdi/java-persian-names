@@ -27,7 +27,7 @@ String fullName = PersianNames.fullNameFarsi();         // Default: "random"
 
 ```java
 System.out.println(PersianNames.fullNameFarsi("m")); // اشکان محمدرضائیان
-System.out.println(PersianNames.fullNameFarsi("f")); // مهسا امینی
+System.out.println(PersianNames.fullNameFarsi("f")); // مهسا امیری
 System.out.println(PersianNames.fullNameFarsi("r")); // بیتا خسروی راد
 ```
 
