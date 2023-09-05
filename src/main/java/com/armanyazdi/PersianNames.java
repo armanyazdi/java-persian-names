@@ -60,6 +60,7 @@ public class PersianNames {
                 "Seyed",
                 "Amir",
                 "Aziz",
+                "Sayad",
                 "Shah",
                 "Nik",
                 "Haj",
@@ -99,6 +100,7 @@ public class PersianNames {
                 "moghaddam", "",
                 "roshan", "",
                 "tabar", "",
+                "zadegan", "",
         };
         moreSuffixes = new String[]{
                 "pour", "i",
@@ -118,7 +120,7 @@ public class PersianNames {
 
         readFile(0, lastNames);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNames.get(i));
+        for (byte i = 26; i < 53; i++) illegalNames.add(lastNames.get(i));
         String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
@@ -199,6 +201,7 @@ public class PersianNames {
                 "سید",
                 "امیر",
                 "عزیز",
+                "صیاد",
                 "شاه ",
                 "نیک ",
                 "حاج ",
@@ -238,6 +241,7 @@ public class PersianNames {
                 " مقدم", "",
                 " روشن", "",
                 " تبار", "",
+                " زادگان", "",
         };
         moreSuffixes = new String[]{
                 " پور", "ی",
@@ -257,7 +261,7 @@ public class PersianNames {
 
         readFile(2, lastNames);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNames.get(i));
+        for (byte i = 26; i < 53; i++) illegalNames.add(lastNames.get(i));
         String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
