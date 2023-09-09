@@ -74,7 +74,8 @@ public class PersianNames {
                 "Malek",
                 "Khan",
                 "Beig",
-                "Arab"
+                "Arab",
+                "Manesh"
         };
         someSuffixes = new String[]{
                 "pour", "",
@@ -103,6 +104,7 @@ public class PersianNames {
                 "rashed", "",
                 "dana", "",
                 "zadegan", "",
+                "manesh", ""
         };
         moreSuffixes = new String[]{
                 "pour", "i",
@@ -118,6 +120,7 @@ public class PersianNames {
                 "beigi", "i",
                 "zare", "i",
                 "tabar", "i",
+                "manesh", "i"
         };
 
         readFile(0, lastNames);
@@ -217,7 +220,8 @@ public class PersianNames {
                 "ملک ",
                 "خان ",
                 "بیگ ",
-                "عرب "
+                "عرب ",
+                "منش "
         };
         someSuffixes = new String[]{
                 " پور", "",
@@ -246,6 +250,7 @@ public class PersianNames {
                 " راشد", "",
                 " دانا", "",
                 " زادگان", "",
+                " منش", ""
         };
         moreSuffixes = new String[]{
                 " پور", "ی",
@@ -261,6 +266,7 @@ public class PersianNames {
                 " بیگی", "ی",
                 " زارع", "ی",
                 " تبار", "ی",
+                " منش", "ی"
         };
 
         readFile(2, lastNames);
