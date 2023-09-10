@@ -125,7 +125,7 @@ public class PersianNames {
 
         readFile(0, lastNames);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
-        for (byte i = 26; i < 57; i++) illegalNames.add(lastNames.get(i));
+        for (byte i = 26; i < 59; i++) illegalNames.add(lastNames.get(i));
         String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
@@ -271,7 +271,7 @@ public class PersianNames {
 
         readFile(2, lastNames);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
-        for (byte i = 26; i < 57; i++) illegalNames.add(lastNames.get(i));
+        for (byte i = 26; i < 59; i++) illegalNames.add(lastNames.get(i));
         String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
