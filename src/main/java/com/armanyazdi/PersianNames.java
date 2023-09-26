@@ -51,6 +51,7 @@ public class PersianNames {
         // English Prefixes and Suffixes
         somePrefixes = new String[]{
                 "Mir",
+                "Yar",
                 "Agha",
                 "Abou",
                 "Pour",
@@ -61,6 +62,7 @@ public class PersianNames {
                 "Amir",
                 "Aziz",
                 "Sayad",
+                "Zahed",
                 "Shah",
                 "Nik",
                 "Haj",
@@ -104,7 +106,8 @@ public class PersianNames {
                 "rashed", "",
                 "dana", "",
                 "zadegan", "",
-                "manesh", ""
+                "manesh", "",
+                "yar", ""
         };
         moreSuffixes = new String[]{
                 "pour", "i",
@@ -120,12 +123,13 @@ public class PersianNames {
                 "beigi", "i",
                 "zare", "i",
                 "tabar", "i",
-                "manesh", "i"
+                "manesh", "i",
+                "pourian", "i"
         };
 
         readFile(0, lastNames);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
-        for (byte i = 26; i < 59; i++) illegalNames.add(lastNames.get(i));
+        for (byte i = 26; i < 60; i++) illegalNames.add(lastNames.get(i));
         String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
@@ -197,6 +201,7 @@ public class PersianNames {
         // Farsi Prefixes and Suffixes
         somePrefixes = new String[]{
                 "میر",
+                "یار",
                 "آقا",
                 "ابو",
                 "پور",
@@ -207,6 +212,7 @@ public class PersianNames {
                 "امیر",
                 "عزیز",
                 "صیاد",
+                "زاهد",
                 "شاه ",
                 "نیک ",
                 "حاج ",
@@ -250,7 +256,8 @@ public class PersianNames {
                 " راشد", "",
                 " دانا", "",
                 " زادگان", "",
-                " منش", ""
+                " منش", "",
+                " یار", ""
         };
         moreSuffixes = new String[]{
                 " پور", "ی",
@@ -266,12 +273,13 @@ public class PersianNames {
                 " بیگی", "ی",
                 " زارع", "ی",
                 " تبار", "ی",
-                " منش", "ی"
+                " منش", "ی",
+                " پوریان", "ی"
         };
 
         readFile(2, lastNames);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
-        for (byte i = 26; i < 59; i++) illegalNames.add(lastNames.get(i));
+        for (byte i = 26; i < 60; i++) illegalNames.add(lastNames.get(i));
         String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
